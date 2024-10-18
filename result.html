@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Score</h1>
+        <p>You got <span id="score"></span>/3 correct!</p>
+        <button onclick="restartQuiz()">Play Again</button>
+    </div>
+
+    <script>
+        const score = localStorage.getItem('score');
+        document.getElementById('score').textContent = score; // Show the score
+
+        function restartQuiz() {
+            window.location.href = 'index.html'; // Go back to the homepage
+        }
+    </script>
+</body>
+</html>
