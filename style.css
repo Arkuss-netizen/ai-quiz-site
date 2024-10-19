@@ -20,7 +20,7 @@ h1 {
 }
 
 button {
-    background-color: #4285f4;
+    background-color: #4285f4; /* This color will be used as the default */
     color: white;
     border: none;
     padding: 10px 20px;
@@ -29,9 +29,10 @@ button {
     cursor: pointer;
 }
 
-    background-color: #357ae8;
+/* Button hover effect */
+button:hover {
+    background-color: #357ae8; /* This color will be used on hover */
 }
-
 
 /* Chat Section Styling */
 #chat-section {
@@ -59,14 +60,14 @@ button {
     margin-right: 10px;
 }
 
-button {
+#user-input button {
     padding: 10px 15px;
-    background-color: #4CAF50;
+    background-color: #4CAF50; /* This color will be used for user input buttons */
     color: white;
     border: none;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #45a049;
+#user-input button:hover {
+    background-color: #45a049; /* This color will be used for hover effect on user input buttons */
 }
