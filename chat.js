@@ -21,7 +21,7 @@ document.getElementById('chat-form').addEventListener('submit', async function(e
                 'Authorization': 'Bearer sk-7PpvbPQSbZ9CzHYOGm1shyppX0XLO5xcH-oHUOWx2JT3BlbkFJZj52DMiyYboVy-13-Vd0KZsAAn07NOmEb_RSNZRqcA' // Replace with your OpenAI API key
             },
             body: JSON.stringify({
-                model: "gpt-3.5-turbo", // Use "gpt-4" if you have access
+                model: "gpt-3.5-turbo", // You can use "gpt-4" if you have access
                 messages: [{ role: "user", content: userInput }]
             })
         });
