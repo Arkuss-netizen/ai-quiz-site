@@ -1,7 +1,7 @@
 const questions = [
     {
         type: 'image',
-        content: 'path/to/your/image1.jpg', // Add the path to your image here
+        content: '1.jpg', // Add the path to your image here
         correctAnswer: 'real',
     },
     {
