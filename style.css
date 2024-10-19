@@ -1,48 +1,37 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
+/* Chat Section Styling */
+#chat-section {
     background-color: #f4f4f4;
+    padding: 20px;
+    margin-top: 20px;
 }
 
-header {
-    text-align: center;
-    padding: 20px;
+#chatbox {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    height: 300px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+#messages p {
+    margin: 10px 0;
+}
+
+#user-input {
+    width: 75%;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 15px;
     background-color: #4CAF50;
     color: white;
+    border: none;
+    cursor: pointer;
 }
 
-h1 {
-    margin: 0;
-    font-size: 36px;
-}
-
-p {
-    font-size: 18px;
-}
-
-#quiz-section {
-    margin-top: 30px;
-}
-
-h2 {
-    color: #333;
-}
-
-img {
-    display: block;
-    margin: 20px auto;
-    max-width: 100%;
-}
-
-audio {
-    display: block;
-    margin: 20px auto;
-}
-
-footer {
-    text-align: center;
-    margin-top: 50px;
-    padding: 10px;
-    background-color: #333;
-    color: white;
+button:hover {
+    background-color: #45a049;
 }
