@@ -26,13 +26,15 @@ window.onload = function() {
 function loadQuestion() {
     const questionElement = document.getElementById('quizContent');
     const questionNumberElement = document.getElementById('questionNumber');
+    const feedbackElement = document.getElementById('feedback'); // Added for feedback
 
     questionNumberElement.textContent = currentQuestion + 1;
 
     const question = questions[currentQuestion];
+    feedbackElement.textContent = ''; // Clear previous feedback
 
     if (question.type === 'image') {
-        questionElement.innerHTML = `<img src="${question.content}" alt="Question Image" class="quizImage">`;
+        questionElement.innerHTML = `<img src="${question.content}" alt="Question Image" class="quizImage" onerror="this.onerror=null; this.src='fallback.jpg';">`; // Add a fallback image
     } else if (question.type === 'text') {
         questionElement.innerHTML = `<p>${question.content}</p>`;
     } else if (question.type === 'audio') {
@@ -41,16 +43,24 @@ function loadQuestion() {
 }
 
 function submitAnswer(answer) {
-    if (answer === questions[currentQuestion].correctAnswer) {
+    const correctAnswer = questions[currentQuestion].correctAnswer;
+    const feedbackElement = document.getElementById('feedback'); // Added for feedback
+
+    if (answer === correctAnswer) {
         score++;
+        feedbackElement.textContent = "Correct!"; // Provide feedback
+    } else {
+        feedbackElement.textContent = `Wrong! The correct answer was "${correctAnswer}".`;
     }
 
     currentQuestion++;
 
-    if (currentQuestion < questions.length) {
-        loadQuestion();
-    } else {
-        localStorage.setItem('score', score);
-        window.location.href = 'result.html'; // Redirect to the results page
-    }
+    setTimeout(() => {
+        if (currentQuestion < questions.length) {
+            loadQuestion();
+        } else {
+            localStorage.setItem('score', score);
+            window.location.href = 'result.html'; // Redirect to the results page
+        }
+    }, 2000); // Delay before loading the next question to show feedback
 }
