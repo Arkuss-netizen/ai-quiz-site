@@ -13,7 +13,7 @@ document.getElementById('chat-form').addEventListener('submit', async function(e
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer YOUR_OPENAI_API_KEY' // Replace with your OpenAI API key
+                'Authorization': 'Bearer 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' // Replace with your OpenAI API key
             },
             body: JSON.stringify({
                 model: "gpt-3.5-turbo", // You can use "gpt-4" depending on your API access
