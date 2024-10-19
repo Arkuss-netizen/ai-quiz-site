@@ -1,73 +1,43 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    background-color: #f4f4f4;
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    padding: 0;
 }
 
 .container {
-    background-color: white;
+    max-width: 600px;
+    margin: 50px auto;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-    margin-bottom: 20px;
+    text-align: center;
+}
+
+.feedback {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
 }
 
 button {
-    background-color: #4285f4; /* This color will be used as the default */
-    color: white;
-    border: none;
     padding: 10px 20px;
-    margin: 10px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-/* Button hover effect */
-button:hover {
-    background-color: #357ae8; /* This color will be used on hover */
-}
-
-/* Chat Section Styling */
-#chat-section {
-    background-color: #f4f4f4;
-    padding: 20px;
-    margin-top: 20px;
-}
-
-#chatbox {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    padding: 10px;
-    height: 300px;
-    overflow-y: auto;
-    margin-bottom: 10px;
-}
-
-#messages p {
-    margin: 10px 0;
-}
-
-#user-input {
-    width: 75%;
-    padding: 10px;
-    margin-right: 10px;
-}
-
-#user-input button {
-    padding: 10px 15px;
-    background-color: #4CAF50; /* This color will be used for user input buttons */
-    color: white;
     border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
     cursor: pointer;
+    font-size: 16px;
 }
 
-#user-input button:hover {
-    background-color: #45a049; /* This color will be used for hover effect on user input buttons */
+button:hover {
+    background-color: #0056b3;
 }
