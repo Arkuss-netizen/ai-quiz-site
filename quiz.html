@@ -9,12 +9,13 @@
 </head>
 <body>
     <div class="container">
-        <h1>Question <span id="questionNumber"></span>/3</h1>
-        <div id="quizContent"></div>
+        <h1>Question <span id="questionNumber">1</span>/3</h1>
+        <div id="quizContent">Loading question...</div>
         <div class="options">
             <button onclick="submitAnswer('real')">Real</button>
             <button onclick="submitAnswer('ai')">AI</button>
         </div>
+        <div id="feedback"></div> <!-- For feedback on answer submission -->
     </div>
 
     <!-- Link to the external JavaScript file -->
