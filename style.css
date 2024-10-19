@@ -29,15 +29,9 @@ button {
     cursor: pointer;
 }
 
-button:hover {
     background-color: #357ae8;
 }
 
-.quizImage {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-}
 
 /* Chat Section Styling */
 #chat-section {
