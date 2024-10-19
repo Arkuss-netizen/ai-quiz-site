@@ -3,30 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Results</title>
-    <!-- Link to the CSS file -->
+    <title>Your Score</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1>Your Score</h1>
-        <p id="scoreMessage">Loading score...</p> <!-- Placeholder for score message -->
+        <p>You got <span id="score"></span>/3 correct!</p>
         <button onclick="restartQuiz()">Play Again</button>
     </div>
 
     <script>
         const score = localStorage.getItem('score');
-        const scoreMessage = document.getElementById('scoreMessage');
-
-        // Check if score exists in local storage
-        if (score !== null) {
-            scoreMessage.textContent = `You got ${score}/3 correct!`;
-        } else {
-            scoreMessage.textContent = "No score available. Please take the quiz!";
-        }
+        document.getElementById('score').textContent = score; // Show the score
 
         function restartQuiz() {
-            localStorage.removeItem('score'); // Clear score from local storage
             window.location.href = 'index.html'; // Go back to the homepage
         }
     </script>
