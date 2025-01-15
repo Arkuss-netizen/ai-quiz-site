@@ -1,23 +1,4 @@
-/* General Body Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background-color: #f9f9f9;
-}
 
-/* Header Styles */
-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Quiz Section Styles */
-#quiz-section {
-    margin-bottom: 40px;
-}
-
-/* Chat Section Styling */
 #chat-section {
     background-color: #f4f4f4;
     padding: 20px;
@@ -53,10 +34,4 @@ button {
 
 button:hover {
     background-color: #45a049;
-}
-
-/* Footer Styles */
-footer {
-    text-align: center;
-    margin-top: 20px;
 }
