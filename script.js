@@ -5,7 +5,10 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
     const answers = {
         q1: document.querySelector('input[name="q1"]:checked')?.value,
         q2: document.querySelector('input[name="q2"]:checked')?.value,
-        q3: document.querySelector('input[name="q3"]:checked')?.value
+        q3: document.querySelector('input[name="q3"]:checked')?.value,
+        q4: document.querySelector('input[name="q4"]:checked')?.value,
+        q5: document.querySelector('input[name="q5"]:checked')?.value,
+        q6: document.querySelector('input[name="q6"]:checked')?.value
     };
 
     // Validate answers
@@ -17,12 +20,15 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
     // Calculate score (example scoring logic)
     let score = 0;
     if (answers.q1 === "ai") score++;
+    if (answers.q2 === "ai") score++;
+    if (answers.q3 === "ai") score++;
+    if (answers.q1 === "ai") score++;
     if (answers.q2 === "human") score++;
     if (answers.q3 === "task2") score++;
 
     // Show results
     const resultText = document.getElementById("result-text");
-    resultText.textContent = `You scored ${score} out of 3!`;
+    resultText.textContent = `You scored ${score} out of 6!`;
 
     // Hide quiz and show result
     document.getElementById("quiz-form").classList.add("hidden");
