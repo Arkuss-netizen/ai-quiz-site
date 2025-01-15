@@ -1,28 +1,39 @@
-document.getElementById('submit-quiz').addEventListener('click', function() {
-    const resultsDiv = document.getElementById('quiz-results');
+document.getElementById("quiz-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the form from submitting and refreshing the page
+
+    // Collect answers
+    const answers = {
+        q1: document.querySelector('input[name="q1"]:checked')?.value,
+        q2: document.querySelector('input[name="q2"]:checked')?.value,
+        q3: document.querySelector('input[name="q3"]:checked')?.value
+    };
+
+    // Validate answers
+    if (!answers.q1 || !answers.q2 || !answers.q3) {
+        alert("Please answer all questions before submitting!");
+        return;
+    }
+
+    // Calculate score (example scoring logic)
     let score = 0;
+    if (answers.q1 === "ai") score++;
+    if (answers.q2 === "human") score++;
+    if (answers.q3 === "task2") score++;
 
-    // Question 1 (Image): Correct answer is "AI"
-    const q1Answer = document.querySelector('input[name="q1"]:checked');
-    if (q1Answer && q1Answer.value === 'AI') {
-        score++;
-    }
+    // Show results
+    const resultText = document.getElementById("result-text");
+    resultText.textContent = `You scored ${score} out of 3!`;
 
-    // Question 2 (Audio): Correct answer is "AI"
-    const q2Answer = document.querySelector('input[name="q2"]:checked');
-    if (q2Answer && q2Answer.value === 'AI') {
-        score++;
-    }
-
-    // Display results
-    let resultMessage = '';
-    if (score === 2) {
-        resultMessage = 'Great job! You got both questions correct!';
-    } else if (score === 1) {
-        resultMessage = 'Not bad! You got 1 out of 2 correct.';
-    } else {
-        resultMessage = 'Keep practicing! You didn’t get any answers right this time.';
-    }
-
-    resultsDiv.innerHTML = `<p>Your score: ${score}/2</p><p>${resultMessage}</p>`;
+    // Hide quiz and show result
+    document.getElementById("quiz-form").classList.add("hidden");
+    document.getElementById("result").classList.remove("hidden");
 });
+
+function restartQuiz() {
+    // Reset the form
+    document.getElementById("quiz-form").reset();
+
+    // Hide result and show quiz
+    document.getElementById("result").classList.add("hidden");
+    document.getElementById("quiz-form").classList.remove("hidden");
+}
