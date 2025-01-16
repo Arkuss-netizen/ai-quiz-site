@@ -13,6 +13,13 @@ header {
     padding: 20px;
     text-align: center;
 }
+header h2 {
+    position: absolute; /* Adjust it as needed */
+    top: 10px; /* Distance from the top */
+    left: 10px; /* Distance from the left */
+    font-size: 20px; /* Adjust the size */
+    color: black; /* Change the color if needed */
+}
 
 main {
     padding: 20px;
