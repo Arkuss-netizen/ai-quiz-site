@@ -23,62 +23,61 @@
         <form id="quiz-form">
             <div class="question">
                 <h2>Pirmais attēls</h2>
-                <p>Is this image AI-generated or real?</p>
+                <p>Vai šis attels ir mākslīgi ģenerēts vai reāls?</p>
                 <img class ="img" src="images/ai.png" alt="Question Image">
-                <label><input type="radio" name="q1" value="ai"> AI-Generated</label>
-                <label><input type="radio" name="q1" value="real"> Real</label>
+                    <label><input type="radio" name="q1" value="ai"> AI-Generated</label>
+                    <label><input type="radio" name="q1" value="real"> Real</label>
             </div>
              <div class="question">
                 <h2>Otrais attēls </h2>
-                <p>Is this image AI-generated or real?</p>
+                <p>Vai šis attels ir mākslīgi ģenerēts vai reāls?</p>
                 <img class ="img" src="images/ai3.png" alt="Question Image">
-                <label><input type="radio" name="q2" value="ai"> AI-Generated</label>
-                <label><input type="radio" name="q2" value="real"> Real</label>
+                    <label><input type="radio" name="q2" value="ai"> AI-Generated</label>
+                    <label><input type="radio" name="q2" value="real"> Real</label>
             </div>
              <div class="question">
                 <h2>Trešais attēls</h2>
-                <p>Is this image AI-generated or real?</p>
+               <p>Vai šis attels ir mākslīgi ģenerēts vai reāls?</p>
                 <img class ="img" src="images/ai2.png" alt="Question Image">
-                <label><input type="radio" name="q3" value="ai"> AI-Generated</label>
-                <label><input type="radio" name="q3" value="real"> Real</label>
+                    <label><input type="radio" name="q3" value="ai"> AI-Generated</label>
+                    <label><input type="radio" name="q3" value="real"> Real</label>
             </div>
             <div> 
-                <video class="vid" controls>
-                <h2>Video</h2>
-                <p>Is this image AI-generated or real?</p>
-               
+            <h2>Video</h2>
+                <p>Vai šis video ir mākslīgi ģenerēts vai reāls?</p>
+                <video class="vid" controls>       
                     <source src="video/video1.mp4" type="video/mp4">
-                 <label><input type="radio" name="q3" value="ai"> AI-Generated</label>
-                <label><input type="radio" name="q3" value="real"> Real</label>
+                     <label><input type="radio" name="q3" value="ai"> AI-Generated</label>
+                     <label><input type="radio" name="q3" value="real"> Real</label>
                 </video>
             </div>
             <div class="question">
                 <h2>Question 2:</h2>
-                <p>Can you identify if this audio is AI-generated or human?</p>
+                <p>Vai tu spēj atpazīt audio </p>
                 <audio controls>
                     <source src="audio/sample1.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
-                <label><input type="radio" name="q2" value="ai"> AI-Generated</label>
-                <label><input type="radio" name="q2" value="human"> Human</label>
+                    <label><input type="radio" name="q2" value="ai"> AI-Generated</label>
+                    <label><input type="radio" name="q2" value="human"> Human</label>
             </div>
             <div class="question">
                 <h2>Question 3:</h2>
-                <p>Which of the following tasks is AI best suited for?</p>
+               <p>Kurš no šiem teikumiem ir reaāls un kurš mākslīgi ģenerēts?</p>
                 <label><input type="radio" name="q3" value="task1"> Vai jums ir viegli atšķirt mākslīgi ģenerētas bildes no īstām?</label>
                 <label><input type="radio" name="q3" value="task2"> Data Analysis</label>
                 <label><input type="radio" name="q3" value="task3"> Kā jūs vērtējat mākslīgo attēlu kvalitāti salīdzinājumā ar dabiskajiem attēliem?</label>
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit">Iesniegt</button>
         </form>
         <div id="result" class="hidden">
-            <h2>Your Results:</h2>
+            <h2>Tavs rezultāts:</h2>
             <p id="result-text"></p>
-            <button onclick="restartQuiz()">Restart Quiz</button>
+            <button onclick="restartQuiz()">Pildīt atkārtoti</button>
         </div>
     </main>
     <footer>
-        <p>© 2025 AI Quiz</p>
+        <p>© 2025 Aptauja</p>
     </footer>
     <script src="script.js"></script>
 </body>
