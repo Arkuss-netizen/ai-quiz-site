@@ -22,13 +22,13 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
 
     // Calculate score (example scoring logic)
     let score = 0;
-    if (answers.q1 === "human") score++;
+    if (answers.q1 === "real") score++;
     if (answers.q2 === "ai") score++;
     if (answers.q3 === "ai") score++;
-    if (answers.q4 === "human") score++;
+    if (answers.q4 === "real") score++;
     if (answers.q5 === "ai") score++;
-    if (answers.q6 === "human") score++;
-    if (answers.q7 === "human") score++;
+    if (answers.q6 === "real") score++;
+    if (answers.q7 === "real") score++;
     if (answers.q8 === "ai") score++;
     if (answers.q9 === "task2") score++;
 
