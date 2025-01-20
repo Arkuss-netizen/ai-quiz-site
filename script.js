@@ -30,7 +30,7 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
     if (answers.q6 === "human") score++;
     if (answers.q7 === "human") score++;
     if (answers.q8 === "ai") score++;
-    if (answers.q9 === "ai") score++;
+    if (answers.q9 === "task2") score++;
 
     // Show results
     const resultText = document.getElementById("result-text");
