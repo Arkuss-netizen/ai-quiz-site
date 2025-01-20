@@ -15,7 +15,7 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
     };
 
     // Validate answers
-    if (!answers.q1 || !answers.q2 || !answers.q3) {
+    if (!answers.q1 || !answers.q2 || !answers.q3 || !answers.q4 || !answers.q5 || !answers.q6 || !answers.q7 || !answers.q8 || !answers.q9) {
         alert("Please answer all questions before submitting!");
         return;
     }
