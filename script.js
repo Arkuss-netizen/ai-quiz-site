@@ -23,32 +23,11 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
     }
 
     if (unanswered.length > 0) {
-        alert(`Lūdzu atbildiet uz visiem jautājumiem. Jūs palaidat garām: ${unanswered.join(", ")}`);
+        alert(`Lūdzu atbildiet uz visiem jautajumiem. Jūs palaidat garām: ${unanswered.join(", ")}`);
         return;
     }
 
-    // Send answers to Google Sheets via Google Apps Script
-    const formData = new FormData();
-    for (const [key, value] of Object.entries(answers)) {
-        formData.append(key, value);
-    }
-
-    // Replace with your Google Apps Script URL
-    const googleAppsScriptUrl = "https://script.google.com/macros/s/AKfycbyXFZWjI6gIaLJTa5rxFErQUODz8pGFH4o4MNU49BqtM00yaRhVnTA0IzgX_Pncp8jw/exec";
-
-    fetch(googleAppsScriptUrl, {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.text())
-    .then(data => {
-        console.log("Form submitted successfully:", data);
-    })
-    .catch(error => {
-        console.error("Error submitting form:", error);
-    });
-
-    // Calculate score (example scoring logic)
+    // Calculate score
     let score = 0;
     if (answers.q1 === "real") score++;
     if (answers.q2 === "ai") score++;
@@ -59,6 +38,32 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
     if (answers.q7 === "real") score++;
     if (answers.q8 === "ai") score++;
     if (answers.q9 === "task2") score++;
+
+    // Prepare the data to send to Google Sheets
+    const formData = {
+        ...answers, // Spread answers into the data object
+        score: score // Add score to the data object
+    };
+
+    // Send the data to Google Apps Script (using the doPost function)
+    fetch('https://script.google.com/macros/s/AKfycbwl5Y3QTQ2Y12jDJiui9F3eIQa5rBt0OjR-56oqJl3sEhtyZu5Ti0qLTPHL-N_nPJEF/exec', {  // Replace with your actual Google Apps Script URL
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams(formData)
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data); // Response from Apps Script
+        alert("Tavs rezultāts ir nosūtīts lai es tos spētu apkopot!");
+        // Optionally, reset the quiz form after submission
+        document.getElementById("quiz-form").reset();
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        alert("Kaut kas nogāja greizi. Lūdzu mēģiniet vēlreiz.");
+    });
 
     // Provide feedback based on score
     let feedback = "";
