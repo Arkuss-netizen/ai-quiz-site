@@ -23,9 +23,30 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
     }
 
     if (unanswered.length > 0) {
-        alert(`Lūdzu atbildiet uz visiem jautajumiem. Jūs palaidat garām: ${unanswered.join(", ")}`);
+        alert(`Lūdzu atbildiet uz visiem jautājumiem. Jūs palaidat garām: ${unanswered.join(", ")}`);
         return;
     }
+
+    // Send answers to Google Sheets via Google Apps Script
+    const formData = new FormData();
+    for (const [key, value] of Object.entries(answers)) {
+        formData.append(key, value);
+    }
+
+    // Replace with your Google Apps Script URL
+    const googleAppsScriptUrl = "https://script.google.com/macros/s/AKfycbyXFZWjI6gIaLJTa5rxFErQUODz8pGFH4o4MNU49BqtM00yaRhVnTA0IzgX_Pncp8jw/exec";
+
+    fetch(googleAppsScriptUrl, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log("Form submitted successfully:", data);
+    })
+    .catch(error => {
+        console.error("Error submitting form:", error);
+    });
 
     // Calculate score (example scoring logic)
     let score = 0;
@@ -59,12 +80,3 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
     document.getElementById("quiz-form").classList.add("hidden");
     document.getElementById("result").classList.remove("hidden");
 });
-
-function restartQuiz() {
-    // Reset the form
-    document.getElementById("quiz-form").reset();
-
-    // Hide result and show quiz
-    document.getElementById("result").classList.add("hidden");
-    document.getElementById("quiz-form").classList.remove("hidden");
-}
