@@ -15,8 +15,15 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
     };
 
     // Validate answers
-    if (!answers.q1 || !answers.q2 || !answers.q3 || !answers.q4 || !answers.q5 || !answers.q6 || !answers.q7 || !answers.q8 || !answers.q9) {
-        alert("Please answer all questions before submitting!");
+    const unanswered = [];
+    for (const question in answers) {
+        if (!answers[question]) {
+            unanswered.push(question);
+        }
+    }
+
+    if (unanswered.length > 0) {
+        alert(`Lūdzu atbildiet uz visiem jautajumiem. Jūs palaidat garām: ${unanswered.join(", ")}`);
         return;
     }
 
@@ -32,9 +39,21 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
     if (answers.q8 === "ai") score++;
     if (answers.q9 === "task2") score++;
 
+    // Provide feedback based on score
+    let feedback = "";
+    if (score === 9) {
+        feedback = "Perfekts darbs !";
+    } else if (score >= 7) {
+        feedback = "Tak tik turēt !";
+    } else if (score >= 4) {
+        feedback = "Labs darbs, bet ir kur tiekties .";
+    } else {
+        feedback = "Es redzu esi centies, varbūt pamēģini velreiz  !";
+    }
+
     // Show results
     const resultText = document.getElementById("result-text");
-    resultText.textContent = `You scored ${score} out of 9!`;
+    resultText.innerHTML = `Tavs rezultats  ${score} no 9 !<br>${feedback}`;
 
     // Hide quiz and show result
     document.getElementById("quiz-form").classList.add("hidden");
