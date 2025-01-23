@@ -1,7 +1,4 @@
-// Initialize or fetch history from localStorage
-let answerHistory = JSON.parse(localStorage.getItem("answerHistory")) || [];
-
-document.getElementById("quiz-form").addEventListener("submit", function (event) {
+document.getElementById("quiz-form").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent the form from submitting and refreshing the page
 
     // Collect answers
@@ -14,7 +11,7 @@ document.getElementById("quiz-form").addEventListener("submit", function (event)
         q6: document.querySelector('input[name="q6"]:checked')?.value,
         q7: document.querySelector('input[name="q7"]:checked')?.value,
         q8: document.querySelector('input[name="q8"]:checked')?.value,
-        q9: document.querySelector('input[name="q9"]:checked')?.value,
+        q9: document.querySelector('input[name="q9"]:checked')?.value
     };
 
     // Validate answers
@@ -26,11 +23,11 @@ document.getElementById("quiz-form").addEventListener("submit", function (event)
     }
 
     if (unanswered.length > 0) {
-        alert(`Please answer all questions! You missed: ${unanswered.join(", ")}`);
+        alert(`Lūdzu atbildiet uz visiem jautajumiem. Jūs palaidat garām: ${unanswered.join(", ")}`);
         return;
     }
 
-    // Calculate score
+    // Calculate score (example scoring logic)
     let score = 0;
     if (answers.q1 === "real") score++;
     if (answers.q2 === "ai") score++;
@@ -45,37 +42,22 @@ document.getElementById("quiz-form").addEventListener("submit", function (event)
     // Provide feedback based on score
     let feedback = "";
     if (score === 9) {
-        feedback = "Excellent work!";
+        feedback = "Perfekts darbs !";
     } else if (score >= 7) {
-        feedback = "Great job!";
+        feedback = "Tak tik turēt !";
     } else if (score >= 4) {
-        feedback = "Good effort, but there's room for improvement.";
+        feedback = "Labs darbs, bet ir kur tiekties .";
     } else {
-        feedback = "Needs improvement. Try again!";
+        feedback = "Es redzu esi centies, varbūt pamēģini velreiz  !";
     }
-
-    // Add current answers and score to history
-    const submission = {
-        answers: { ...answers },
-        score: score,
-        timestamp: new Date().toLocaleString(),
-    };
-    answerHistory.push(submission);
-    localStorage.setItem("answerHistory", JSON.stringify(answerHistory));
 
     // Show results
     const resultText = document.getElementById("result-text");
-    resultText.innerHTML = `You scored ${score} out of 9!<br>${feedback}<br><br><strong>Your Answers:</strong><br>`;
-    for (const question in answers) {
-        resultText.innerHTML += `${question.toUpperCase()}: ${answers[question]}<br>`;
-    }
+    resultText.innerHTML = `Tavs rezultats  ${score} no 9 !<br>${feedback}`;
 
     // Hide quiz and show result
     document.getElementById("quiz-form").classList.add("hidden");
     document.getElementById("result").classList.remove("hidden");
-
-    // Update history display
-    displayHistory();
 });
 
 function restartQuiz() {
@@ -86,31 +68,3 @@ function restartQuiz() {
     document.getElementById("result").classList.add("hidden");
     document.getElementById("quiz-form").classList.remove("hidden");
 }
-
-function displayHistory() {
-    const historyContainer = document.getElementById("history");
-    historyContainer.innerHTML = "<h3>Answer History</h3>";
-
-    if (answerHistory.length === 0) {
-        historyContainer.innerHTML += "<p>No submissions yet.</p>";
-        return;
-    }
-
-    // Display each submission
-    answerHistory.forEach((entry, index) => {
-        historyContainer.innerHTML += `
-            <div class="history-entry">
-                <strong>Submission #${index + 1} (${entry.timestamp})</strong><br>
-                Score: ${entry.score}/9<br>
-                Answers:<br>
-                ${Object.entries(entry.answers)
-                    .map(([key, value]) => `${key.toUpperCase()}: ${value}`)
-                    .join("<br>")}
-                <hr>
-            </div>
-        `;
-    });
-}
-
-// Display history on page load
-displayHistory();
