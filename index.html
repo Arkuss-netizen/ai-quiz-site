@@ -141,7 +141,6 @@
                 <label><input type="radio" name="q1" value="real"> Īsts</label>
             </div>
             
-            <!-- Repeat for other questions -->
             <div class="question">
                 <h2>Otrais attēls</h2>
                 <p>Vai šis attels ir mākslīgi ģenerēts vai reāls?</p>
@@ -151,6 +150,38 @@
             </div>
 
             <div class="question">
+                <h2>Trešais attēls</h2>
+                <p>Vai šis attels ir mākslīgi ģenerēts vai reāls?</p>
+                <img class="img" src="images/ai2.png" alt="Question Image">
+                <label><input type="radio" name="q3" value="ai"> MI-ģenerēts</label>
+                <label><input type="radio" name="q3" value="real"> Īsts</label>
+            </div>
+
+            <div class="question">
+                <h2>Ceturtais attēls</h2>
+                <p>Vai šis attels ir mākslīgi ģenerēts vai reāls?</p>
+                <img class="img" src="images/nav2.png" alt="Question Image">
+                <label><input type="radio" name="q4" value="ai"> MI-ģenerēts</label>
+                <label><input type="radio" name="q4" value="real"> Īsts</label>
+            </div>
+
+            <div class="question">
+                <h2>Piektais attēls</h2>
+                <p>Vai šis attels ir mākslīgi ģenerēts vai reāls?</p>
+                <img class="img" src="images/ai5.png" alt="Question Image">
+                <label><input type="radio" name="q5" value="ai"> MI-ģenerēts</label>
+                <label><input type="radio" name="q5" value="real"> Īsts</label>
+            </div>
+
+            <div class="question">
+                <h2>Sestais attēls</h2>
+                <p>Vai šis attels ir mākslīgi ģenerēts vai reāls?</p>
+                <img class="img" src="images/nav3.png" alt="Question Image">
+                <label><input type="radio" name="q6" value="ai"> MI-ģenerēts</label>
+                <label><input type="radio" name="q6" value="real"> Īsts</label>
+            </div>
+
+            <div>
                 <h2>Video</h2>
                 <p>Vai šis video ir mākslīgi ģenerēts vai reāls?</p>
                 <video class="vid" controls>
@@ -172,26 +203,28 @@
             </div>
 
             <div class="question">
-                   <h2>Teksts</h2>
-               <p>Kurš no šiem teikumiem ir reaāls un kurš mākslīgi ģenerēts?</p>
+                <h2>Teksts</h2>
+                <p>Kurš no šiem teikumiem ir reāls un kurš mākslīgi ģenerēts?</p>
                 <label><input type="radio" name="q9" value="task1"> Vai jums ir viegli atšķirt mākslīgi ģenerētas bildes no īstām?</label>
                 <label><input type="radio" name="q9" value="task2"> Data Analysis</label>
                 <label><input type="radio" name="q9" value="task3"> Kā jūs vērtējat mākslīgo attēlu kvalitāti salīdzinājumā ar dabiskajiem attēliem?</label>
             </div>
+
             <button type="submit">Iesniegt</button>
         </form>
+
         <div id="result" class="hidden">
             <h2>Tavs rezultāts:</h2>
             <div id="history"></div>
-
             <p id="result-text"></p>
             <button onclick="restartQuiz()">Pildīt atkārtoti</button>
         </div>
     </main>
+
     <footer>
         <p>© 2025 Aptauja</p>
     </footer>
+
     <script src="script.js"></script>
 </body>
-</html> 
-              
+</html>
