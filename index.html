@@ -172,5 +172,26 @@
             </div>
 
             <div class="question">
-                <h2>Teksts</h2>
+                   <h2>Teksts</h2>
+               <p>Kurš no šiem teikumiem ir reaāls un kurš mākslīgi ģenerēts?</p>
+                <label><input type="radio" name="q9" value="task1"> Vai jums ir viegli atšķirt mākslīgi ģenerētas bildes no īstām?</label>
+                <label><input type="radio" name="q9" value="task2"> Data Analysis</label>
+                <label><input type="radio" name="q9" value="task3"> Kā jūs vērtējat mākslīgo attēlu kvalitāti salīdzinājumā ar dabiskajiem attēliem?</label>
+            </div>
+            <button type="submit">Iesniegt</button>
+        </form>
+        <div id="result" class="hidden">
+            <h2>Tavs rezultāts:</h2>
+            <div id="history"></div>
+
+            <p id="result-text"></p>
+            <button onclick="restartQuiz()">Pildīt atkārtoti</button>
+        </div>
+    </main>
+    <footer>
+        <p>© 2025 Aptauja</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html> 
               
