@@ -6,7 +6,6 @@
     <title>AI Quiz</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Tava stila daļa paliek nemainīga (labs dizains!) */
     </style>
 </head>
 <body>
@@ -18,7 +17,6 @@
     <main>
         <form id="quiz-form" action="https://script.google.com/macros/s/AKfycbyXFZWjI6gIaLJTa5rxFErQUODz8pGFH4o4MNU49BqtM00yaRhVnTA0IzgX_Pncp8jw/exec" method="POST">
 
-            <!-- 1. attēls -->
             <div class="question">
                 <h2>1. Pirmais attēls</h2>
                 <p>Vai šis attēls ir mākslīgi ģenerēts vai reāls?</p>
@@ -27,10 +25,8 @@
                 <label><input type="radio" name="q1" value="real"> Īsts</label>
             </div>
 
-            <!-- Teksta jautājums -->
             <div class="question">
                 <h2>2. Teksts</h2>
-                <p>Vai šis teksts ir cilvēka rakstīts?</p>
                 <p>Bezizeja – tā ir situācija,</p>
                 <p>Kad vecpuisim ir alerģija pret pelmeņiem.</p>
                 <p>Viss pārējais ir nieki.</p>
@@ -38,7 +34,6 @@
                 <label><input type="radio" name="q2" value="ai"> MI-ģenerēts</label>
             </div>
 
-            <!-- 2. attēls -->
             <div class="question">
                 <h2>3. Otrais attēls</h2>
                 <p>Vai šis attēls ir mākslīgi ģenerēts vai reāls?</p>
@@ -47,7 +42,6 @@
                 <label><input type="radio" name="q3" value="real"> Īsts</label>
             </div>
 
-            <!-- 1. video -->
             <div class="question">
                 <h2>4. Video</h2>
                 <p>Vai šis video ir mākslīgi ģenerēts vai reāls?</p>
@@ -58,7 +52,6 @@
                 <label><input type="radio" name="q4" value="real"> Īsts</label>
             </div>
 
-            <!-- 3. attēls -->
             <div class="question">
                 <h2>5. Trešais attēls</h2>
                 <p>Vai šis attēls ir mākslīgi ģenerēts vai reāls?</p>
@@ -67,7 +60,6 @@
                 <label><input type="radio" name="q5" value="real"> Īsts</label>
             </div>
 
-            <!-- 4. attēls -->
             <div class="question">
                 <h2>6. Ceturtais attēls</h2>
                 <p>Vai šis attēls ir mākslīgi ģenerēts vai reāls?</p>
@@ -76,7 +68,6 @@
                 <label><input type="radio" name="q6" value="real"> Īsts</label>
             </div>
 
-            <!-- 5. attēls -->
             <div class="question">
                 <h2>7. Piektais attēls</h2>
                 <p>Vai šis attēls ir mākslīgi ģenerēts vai reāls?</p>
@@ -85,7 +76,6 @@
                 <label><input type="radio" name="q7" value="real"> Īsts</label>
             </div>
 
-            <!-- 1. audio -->
             <div class="question">
                 <h2>8. Audio</h2>
                 <p>Vai tu spēj atpazīt audio?</p>
@@ -96,7 +86,6 @@
                 <label><input type="radio" name="q8" value="human"> Īsts</label>
             </div>
 
-            <!-- 6. attēls -->
             <div class="question">
                 <h2>9. Sestais attēls</h2>
                 <p>Vai šis attēls ir mākslīgi ģenerēts vai reāls?</p>
@@ -105,7 +94,6 @@
                 <label><input type="radio" name="q9" value="real"> Īsts</label>
             </div>
 
-            <!-- 2. video -->
             <div class="question">
                 <h2>10. Video</h2>
                 <video class="vid" controls>
@@ -114,24 +102,26 @@
                 <label><input type="radio" name="q10" value="ai" required> MI-ģenerēts</label>
                 <label><input type="radio" name="q10" value="real"> Īsts</label>
             </div>
-             <div class="question">
-                <h2>8. Audio</h2>
+
+            <div class="question">
+                <h2>11. Audio</h2>
                 <p>Vai tu spēj atpazīt audio?</p>
                 <audio controls>
-                    <source src="audio/Sports ir neatņemama.m4a" type="audio/mpeg">
+                    <source src="audio/Sports ir neatņemama.m4a" type="audio/mp4">
                 </audio>
-                <label><input type="radio" name="q9" value="ai" required> MI-ģenerēts</label>
-                <label><input type="radio" name="q9" value="human"> Īsts</label>
+                <label><input type="radio" name="q11" value="ai" required> MI-ģenerēts</label>
+                <label><input type="radio" name="q11" value="human"> Īsts</label>
             </div>
-  <div class="question">
-                <h2>2. Teksts</h2>
+
+            <div class="question">
+                <h2>12. Teksts</h2>
                 <p>— Kāpēc tu nekad neesi dusmīgs?</p>
-    <p>— Tāpēc, ka dusmoties ir bezjēdzīgi.</p>
-    <p>— Nu jā, bet ja kāds tevi apvainotu?</p>
-    <p>— Tad viņš būtu dusmīgs, nevis es!</p>
-    <label><input type="radio" name="q11" value="human" required> Cilvēka rakstīts</label>
-    <label><input type="radio" name="q11" value="ai"> MI-ģenerēts</label>
-</div>
+                <p>— Tāpēc, ka dusmoties ir bezjēdzīgi.</p>
+                <p>— Nu jā, bet ja kāds tevi apvainotu?</p>
+                <p>— Tad viņš būtu dusmīgs, nevis es!</p>
+                <label><input type="radio" name="q12" value="human" required> Cilvēka rakstīts</label>
+                <label><input type="radio" name="q12" value="ai"> MI-ģenerēts</label>
+            </div>
                 
             <button type="submit">Iesniegt</button>
         </form>
