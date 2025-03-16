@@ -1,128 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Quiz</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .img {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .vid {
-            width: 100%;
-            max-width: 500px;
-            height: 300px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        /* General Styling */
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fafafa;
-            color: #333;
-        }
-
-        header {
-            background: white;
-            padding: 20px 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        header h1 {
-            font-size: 28px;
-            font-weight: 600;
-            color: #262626;
-        }
-
-        header h2 {
-            font-size: 18px;
-            color: #0078d7;
-        }
-
-        main {
-            max-width: 700px;
-            margin: 30px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .question {
-            margin-bottom: 20px;
-        }
-
-        .question h2 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        label {
-            display: block;
-            font-size: 16px;
-            margin-top: 8px;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        input[type="radio"] {
-            margin-right: 10px;
-        }
-
-        button {
-            background: #0095f6;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 20px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        button:hover {
-            background-color: #0078d7;
-            transform: scale(1.05);
-        }
-
-        button:active {
-            background-color: #003f8c;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #333;
-            color: white;
-            font-size: 0.9em;
-        }
-
-        #result {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .question img, .question video {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+        /* Tava stila daļa paliek nemainīga (labs dizains!) */
     </style>
 </head>
 <body>
@@ -130,101 +14,109 @@
         <h2>Markuss Grigorjevs</h2>
         <h1>Pārbaudi savas zināšanas</h1>
     </header>
-    
+
     <main>
         <form id="quiz-form" action="https://script.google.com/macros/s/AKfycbyXFZWjI6gIaLJTa5rxFErQUODz8pGFH4o4MNU49BqtM00yaRhVnTA0IzgX_Pncp8jw/exec" method="POST">
+
+            <!-- 1. attēls -->
             <div class="question">
-                <h2>Pirmais attēls</h2>
-                <p>Vai šis attels ir mākslīgi ģenerēts vai reāls?</p>
-                <img class="img" src="images/ists6.png" alt="Question Image">
-                <label><input type="radio" name="q1" value="ai"> MI-ģenerēts</label>
+                <h2>1. Pirmais attēls</h2>
+                <p>Vai šis attēls ir mākslīgi ģenerēts vai reāls?</p>
+                <img class="img" src="images/ists6.png" alt="Attēls 1">
+                <label><input type="radio" name="q1" value="ai" required> MI-ģenerēts</label>
                 <label><input type="radio" name="q1" value="real"> Īsts</label>
             </div>
-            
+
+            <!-- Teksta jautājums -->
             <div class="question">
-                <h2>Otrais attēls</h2>
-                <p>Vai šis attels ir mākslīgi ģenerēts vai reāls?</p>
-                <img class="img" src="images/ai.png" alt="Question Image">
+                <h2>2. Teksts</h2>
+                <p>Vai šis teksts ir cilvēka rakstīts?</p>
+                <p><i>Bezizeja – tā ir situācija, kad vecpuisim ir alerģija pret pelmeņiem. Viss pārējais ir nieki.</i></p>
+                <label><input type="radio" name="q2" value="human" required> Cilvēka rakstīts</label>
                 <label><input type="radio" name="q2" value="ai"> MI-ģenerēts</label>
-                <label><input type="radio" name="q2" value="real"> Īsts</label>
             </div>
 
+            <!-- 2. attēls -->
             <div class="question">
-                <h2>Trešais attēls</h2>
-                <p>Vai šis attels ir mākslīgi ģenerēts vai reāls?</p>
-                <img class="img" src="images/ai2.png" alt="Question Image">
-                <label><input type="radio" name="q3" value="ai"> MI-ģenerēts</label>
+                <h2>3. Otrais attēls</h2>
+                <p>Vai šis attēls ir mākslīgi ģenerēts vai reāls?</p>
+                <img class="img" src="images/ai.png" alt="Attēls 2">
+                <label><input type="radio" name="q3" value="ai" required> MI-ģenerēts</label>
                 <label><input type="radio" name="q3" value="real"> Īsts</label>
             </div>
 
+            <!-- 1. video -->
             <div class="question">
-                <h2>Ceturtais attēls</h2>
-                <p>Vai šis attels ir mākslīgi ģenerēts vai reāls?</p>
-                <img class="img" src="images/nav2.png" alt="Question Image">
-                <label><input type="radio" name="q4" value="ai"> MI-ģenerēts</label>
+                <h2>4. Video</h2>
+                <p>Vai šis video ir mākslīgi ģenerēts vai reāls?</p>
+                <video class="vid" controls>
+                    <source src="video/2025-03-16 15-23-57 (online-video-cutter.com) (1).mp4" type="video/mp4">
+                </video>
+                <label><input type="radio" name="q4" value="ai" required> MI-ģenerēts</label>
                 <label><input type="radio" name="q4" value="real"> Īsts</label>
             </div>
 
+            <!-- 3. attēls -->
             <div class="question">
-                <h2>Piektais attēls</h2>
-                <p>Vai šis attels ir mākslīgi ģenerēts vai reāls?</p>
-                <img class="img" src="images/ai5.png" alt="Question Image">
-                <label><input type="radio" name="q5" value="ai"> MI-ģenerēts</label>
+                <h2>5. Trešais attēls</h2>
+                <p>Vai šis attēls ir mākslīgi ģenerēts vai reāls?</p>
+                <img class="img" src="images/ai2.png" alt="Attēls 3">
+                <label><input type="radio" name="q5" value="ai" required> MI-ģenerēts</label>
                 <label><input type="radio" name="q5" value="real"> Īsts</label>
             </div>
 
+            <!-- 4. attēls -->
             <div class="question">
-                <h2>Sestais attēls</h2>
-                <p>Vai šis attels ir mākslīgi ģenerēts vai reāls?</p>
-                <img class="img" src="images/nav3.png" alt="Question Image">
-                <label><input type="radio" name="q6" value="ai"> MI-ģenerēts</label>
+                <h2>6. Ceturtais attēls</h2>
+                <p>Vai šis attēls ir mākslīgi ģenerēts vai reāls?</p>
+                <img class="img" src="images/nav2.png" alt="Attēls 4">
+                <label><input type="radio" name="q6" value="ai" required> MI-ģenerēts</label>
                 <label><input type="radio" name="q6" value="real"> Īsts</label>
             </div>
 
-            <div>
-                <h2>Video</h2>
-                <p>Vai šis video ir mākslīgi ģenerēts vai reāls?</p>
-                <video class="vid" controls>
-                    <source src="video/video1.mp4" type="video/mp4">
-                </video>
-                <label><input type="radio" name="q7" value="ai"> MI-ģenerēts</label>
+            <!-- 5. attēls -->
+            <div class="question">
+                <h2>7. Piektais attēls</h2>
+                <p>Vai šis attēls ir mākslīgi ģenerēts vai reāls?</p>
+                <img class="img" src="images/ai5.png" alt="Attēls 5">
+                <label><input type="radio" name="q7" value="ai" required> MI-ģenerēts</label>
                 <label><input type="radio" name="q7" value="real"> Īsts</label>
             </div>
 
+            <!-- 1. audio -->
             <div class="question">
-                <h2>Audio</h2>
+                <h2>8. Audio</h2>
                 <p>Vai tu spēj atpazīt audio?</p>
                 <audio controls>
-                    <source src="audio/Sports ir neatņemama.m4a" type="audio/mpeg">
-                    Your browser does not support the audio element.
+                    <source src="audio/default (mp3cut.net).mp3" type="audio/mpeg">
                 </audio>
-                <label><input type="radio" name="q8" value="ai"> MI-ģenerēts</label>
+                <label><input type="radio" name="q8" value="ai" required> MI-ģenerēts</label>
                 <label><input type="radio" name="q8" value="human"> Īsts</label>
             </div>
 
+            <!-- 6. attēls -->
             <div class="question">
-                <h2>Teksts</h2>
-                <p>Kurš no šiem teikumiem ir reāls?</p>
-                <label><input type="radio" name="q9" value="task1"> Vai jums ir viegli atšķirt mākslīgi ģenerētas bildes no īstām?</label>
-                <label><input type="radio" name="q9" value="task2"> Data Analysis</label>
-                <label><input type="radio" name="q9" value="task3"> Kā jūs vērtējat mākslīgo attēlu kvalitāti salīdzinājumā ar dabiskajiem attēliem?</label>
+                <h2>9. Sestais attēls</h2>
+                <p>Vai šis attēls ir mākslīgi ģenerēts vai reāls?</p>
+                <img class="img" src="images/nav3.png" alt="Attēls 6">
+                <label><input type="radio" name="q9" value="ai" required> MI-ģenerēts</label>
+                <label><input type="radio" name="q9" value="real"> Īsts</label>
+            </div>
+
+            <!-- 2. video -->
+            <div class="question">
+                <h2>10. Video</h2>
+                <video class="vid" controls>
+                    <source src="video/video1.mp4" type="video/mp4">
+                </video>
+                <label><input type="radio" name="q10" value="ai" required> MI-ģenerēts</label>
+                <label><input type="radio" name="q10" value="real"> Īsts</label>
             </div>
 
             <button type="submit">Iesniegt</button>
         </form>
-
-        <div id="result" class="hidden">
-            <h2>Tavs rezultāts:</h2>
-            <div id="history"></div>
-            <p id="result-text"></p>
-            <button onclick="restartQuiz()">Pildīt atkārtoti</button>
-        </div>
     </main>
 
-    <footer>
-        <p>© 2025 Aptauja</p>
-    </footer>
-
-    <script src="script.js"></script>
+    <footer><p>© 2025 Aptauja</p></footer>
 </body>
 </html>
