@@ -43,7 +43,7 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
 
         let feedback = "";
         if (score === 12) feedback = "Perfekts darbs!";
-        else if (score >= 9) feedback = "Tak tik turēt!";
+        else if (score >= 9) feedback = "Tā tik turēt!";
         else if (score >= 6) feedback = "Labs darbs, bet ir kur tiekties.";
         else feedback = "Es redzu, esi centies. Varbūt pamēģini vēlreiz!";
 
