@@ -31,7 +31,9 @@
             <div class="question">
                 <h2>2. Teksts</h2>
                 <p>Vai šis teksts ir cilvēka rakstīts?</p>
-                <p><i>Bezizeja – tā ir situācija, kad vecpuisim ir alerģija pret pelmeņiem. Viss pārējais ir nieki.</i></p>
+                <p><i>Bezizeja – tā ir situācija, 
+                    kad vecpuisim ir alerģija pret pelmeņiem.
+                    Viss pārējais ir nieki.</i></p>
                 <label><input type="radio" name="q2" value="human" required> Cilvēka rakstīts</label>
                 <label><input type="radio" name="q2" value="ai"> MI-ģenerēts</label>
             </div>
@@ -112,11 +114,31 @@
                 <label><input type="radio" name="q10" value="ai" required> MI-ģenerēts</label>
                 <label><input type="radio" name="q10" value="real"> Īsts</label>
             </div>
-
+             <div class="question">
+                <h2>8. Audio</h2>
+                <p>Vai tu spēj atpazīt audio?</p>
+                <audio controls>
+                    <source src="audio/Sports ir neatņemama.m4a" type="audio/mpeg">
+                </audio>
+                <label><input type="radio" name="q9" value="ai" required> MI-ģenerēts</label>
+                <label><input type="radio" name="q9" value="human"> Īsts</label>
+            </div>
+  <div class="question">
+                <h2>2. Teksts</h2>
+                <p>— Kāpēc tu nekad neesi dusmīgs?
+                    — Tāpēc, ka dusmoties ir bezjēdzīgi.
+                    — Nu jā, bet ja kāds tevi apvainotu?
+                    — Tad viņš būtu dusmīgs, nevis es!</p>
+                <label><input type="radio" name="q2" value="human" required> Cilvēka rakstīts</label>
+                <label><input type="radio" name="q2" value="ai"> MI-ģenerēts</label>
+            </div>
             <button type="submit">Iesniegt</button>
         </form>
     </main>
-
+— Kāpēc tu nekad neesi dusmīgs?
+— Tāpēc, ka dusmoties ir bezjēdzīgi.
+— Nu jā, bet ja kāds tevi apvainotu?
+— Tad viņš būtu dusmīgs, nevis es!
     <footer><p>© 2025 Aptauja</p></footer>
 </body>
 </html>
