@@ -1,4 +1,4 @@
-document.getElementById("quiz-form").addEventListener("submit", function(event) {
+document.getElementById("quiz-form").addEventListener("submit", function (event) {
     event.preventDefault();
 
     const answers = {
@@ -13,9 +13,10 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
         q9: document.querySelector('input[name="q9"]:checked')?.value,
         q10: document.querySelector('input[name="q10"]:checked')?.value,
         q11: document.querySelector('input[name="q11"]:checked')?.value,
-        q12: document.querySelector('input[name="q12"]:checked')?.value
+        q12: document.querySelector('input[name="q12"]:checked')?.value,
     };
 
+    // Pārbauda vai visas atbildes aizpildītas
     const unanswered = [];
     for (const question in answers) {
         if (!answers[question]) {
@@ -28,9 +29,10 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
         return;
     }
 
+    // Rezultātu aprēķins
     let score = 0;
     if (answers.q1 === "real") score++;
-    if (answers.q2 === "real") score++;
+    if (answers.q2 === "human") score++;
     if (answers.q3 === "ai") score++;
     if (answers.q4 === "ai") score++;
     if (answers.q5 === "ai") score++;
@@ -42,44 +44,28 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
     if (answers.q11 === "ai") score++;
     if (answers.q12 === "human") score++;
 
-   const formData = {
-    ...answers, // Pievieno visas atbildes
-    score: score // Pievieno rezultātu
-};
+    // Apvieno visas atbildes + rezultātu
+    const formData = {
+        ...answers,
+        score: score
+    };
 
-// Tad sūti šo uz Google Sheets
-fetch('https://script.google.com/macros/s/AKfycbzccFgW3j6JGtKORgk9VmnJcAPzhkRmbboZNHiMiWZwOG4dN-kKUEtqW1Qils3obnns/exec', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    body: new URLSearchParams(formData)
-})
-.then(response => response.text())
-.then(data => {
-    console.log(data);
-    alert("Tavs rezultāts ir nosūtīts, lai es tos spētu apkopot!");
-    document.getElementById("quiz-form").reset();
-})
-.catch(error => {
-    console.error("Error:", error);
-    alert("Kaut kas nogāja greizi. Lūdzu, mēģiniet vēlreiz.");
-});
-
-    let feedback = "";
-    if (score === 12) {
-        feedback = "Perfekts darbs!";
-    } else if (score >= 9) {
-        feedback = "Tak tik turēt!";
-    } else if (score >= 6) {
-        feedback = "Labs darbs, bet ir kur tiekties.";
-    } else {
-        feedback = "Es redzu, esi centies. Varbūt pamēģini vēlreiz!";
-    }
-
-    const resultText = document.getElementById("result-text");
-    resultText.innerHTML = `Tavs rezultāts: ${score} no 12!<br>${feedback}`;
-
-    document.getElementById("quiz-form").classList.add("hidden");
-    document.getElementById("result").classList.remove("hidden");
+    // Sūta uz Google Sheets caur Google Apps Script
+    fetch('https://script.google.com/macros/s/AKfycbzccFgW3j6JGtKORgk9VmnJcAPzhkRmbboZNHiMiWZwOG4dN-kKUEtqW1Qils3obnns/exec', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams(formData)
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+        alert(`Tavs rezultāts ir nosūtīts! Rezultāts: ${score} no 12`);
+        document.getElementById("quiz-form").reset();
+    })
+    .catch(error => {
+        console.error("Kļūda:", error);
+        alert("Kaut kas nogāja greizi. Lūdzu, mēģini vēlreiz.");
+    });
 });
