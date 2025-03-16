@@ -42,28 +42,29 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
     if (answers.q11 === "ai") score++;
     if (answers.q12 === "human") score++;
 
-    const formData = {
-        ...answers,
-        score: score
-    };
+   const formData = {
+    ...answers, // Pievieno visas atbildes
+    score: score // Pievieno rezultātu
+};
 
-    fetch('https://script.google.com/macros/s/AKfycbzccFgW3j6JGtKORgk9VmnJcAPzhkRmbboZNHiMiWZwOG4dN-kKUEtqW1Qils3obnns/exec', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: new URLSearchParams(formData)
-    })
-    .then(response => response.text())
-    .then(data => {
-        console.log(data);
-        alert("Tavs rezultāts ir nosūtīts, lai es tos spētu apkopot!");
-        document.getElementById("quiz-form").reset();
-    })
-    .catch(error => {
-        console.error("Error:", error);
-        alert("Kaut kas nogāja greizi. Lūdzu, mēģiniet vēlreiz.");
-    });
+// Tad sūti šo uz Google Sheets
+fetch('https://script.google.com/macros/s/AKfycbzccFgW3j6JGtKORgk9VmnJcAPzhkRmbboZNHiMiWZwOG4dN-kKUEtqW1Qils3obnns/exec', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: new URLSearchParams(formData)
+})
+.then(response => response.text())
+.then(data => {
+    console.log(data);
+    alert("Tavs rezultāts ir nosūtīts, lai es tos spētu apkopot!");
+    document.getElementById("quiz-form").reset();
+})
+.catch(error => {
+    console.error("Error:", error);
+    alert("Kaut kas nogāja greizi. Lūdzu, mēģiniet vēlreiz.");
+});
 
     let feedback = "";
     if (score === 12) {
