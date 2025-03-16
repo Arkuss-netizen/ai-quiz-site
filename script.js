@@ -47,7 +47,7 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
         score: score
     };
 
-    fetch('https://script.google.com/macros/s/AKfycbwl5Y3QTQ2Y12jDJiui9F3eIQa5rBt0OjR-56oqJl3sEhtyZu5Ti0qLTPHL-N_nPJEF/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbzccFgW3j6JGtKORgk9VmnJcAPzhkRmbboZNHiMiWZwOG4dN-kKUEtqW1Qils3obnns/exec', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
