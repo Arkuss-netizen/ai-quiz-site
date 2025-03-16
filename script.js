@@ -20,9 +20,9 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
 
     let score = 0;
     const correctAnswers = {
-        q1: "real", q2: "ai", q3: "ai", q4: "real",
-        q5: "ai", q6: "real", q7: "real", q8: "ai",
-        q9: "real", q10: "ai", q11: "human", q12: "human"
+        q1: "real", q2: "real", q3: "ai", q4: "ai",
+        q5: "ai", q6: "real", q7: "ai", q8: "real",
+        q9: "real", q10: "real", q11: "ai", q12: "ai"
     };
 
     for (const question in answers) {
