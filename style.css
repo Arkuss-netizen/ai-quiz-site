@@ -44,13 +44,50 @@ main:hover {
 
 /* Question styling */
 .question {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
+/* Label and input radio button styling */
 label {
-    display: block;
-    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0;
     cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="radio"] {
+    margin: 0;
+    width: 18px;
+    height: 18px;
+}
+
+/* Images formatting */
+.question img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Video formatting */
+.question video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Text blocks inside questions */
+.question p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 10px 0;
 }
 
 /* Button styling */
@@ -59,10 +96,11 @@ button {
     color: white;
     padding: 12px 25px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
     transition: background 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
 }
 
 button:hover {
@@ -87,6 +125,7 @@ footer {
     color: white;
     margin-top: 40px;
     font-size: 0.9em;
+    border-radius: 0 0 15px 15px;
 }
 
 /* History entry styling */
@@ -103,4 +142,21 @@ footer {
     margin-bottom: 10px;
     border: 0;
     border-top: 1px solid #ddd;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    main {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    button {
+        width: 100%;
+        padding: 15px;
+    }
+
+    header h2 {
+        font-size: 20px;
+    }
 }
