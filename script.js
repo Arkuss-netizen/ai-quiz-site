@@ -1,6 +1,9 @@
 document.getElementById("quiz-form").addEventListener("submit", function(event) {
     event.preventDefault();
 
+    const submitButton = document.querySelector('button[type="submit"]');
+    submitButton.disabled = true; // Atspējo pogu pēc klikšķa
+
     const answers = {};
     for (let i = 1; i <= 12; i++) {
         answers[`q${i}`] = document.querySelector(`input[name="q${i}"]:checked`)?.value;
@@ -15,6 +18,7 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
 
     if (unanswered.length > 0) {
         alert(`Lūdzu atbildiet uz visiem jautājumiem. Jūs palaidāt garām: ${unanswered.join(", ")}`);
+        submitButton.disabled = false; // Atļauj atkārtoti iesniegt, ja trūkst atbilžu
         return;
     }
 
@@ -54,5 +58,6 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
     .catch(error => {
         console.error("Kļūda:", error);
         alert("Radās kļūda, mēģini vēlreiz!");
+        submitButton.disabled = false; // Atļauj atkārtoti mēģināt pēc kļūdas
     });
 });
